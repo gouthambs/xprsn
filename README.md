@@ -1,6 +1,17 @@
 xprsn
 =====
 
+Setup Python
+------------
+Once you have downloaded WinPython, add the python installation folders to your path.
+For instance, add:
+```
+C:\WinPython-32bit-2.7.6.3\python-2.7.6
+C:\WinPython-32bit-2.7.6.3\python-2.7.6\Scripts
+```
+
+Once this is added to the path, you will be able to call ```python``` from ```cmd```.
+
 Set Up Process
 --------------
 
