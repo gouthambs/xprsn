@@ -5,7 +5,7 @@ Created on Tue Mar 18 09:45:05 2014
 @author: Goutham
 """
 
-from xprsn.core import db
+from xprsn import db
 
 ROLE_USER = 0
 ROLE_ADMIN = 1
