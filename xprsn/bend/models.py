@@ -30,4 +30,4 @@ class Widget(db.Model):
     
 
     def __repr__(self):
-        return '<Post %r>' % (self.body)
+        return '<Widget %r>' % (self.id)
