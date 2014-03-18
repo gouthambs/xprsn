@@ -5,7 +5,7 @@ Created on Sun Mar 16 00:11:33 2014
 @author: Goutham
 """
 
-#!flask/bin/python
+#!xprsn-env/bin/python
 from migrate.exceptions import DatabaseAlreadyControlledError
 from migrate.versioning import api
 from config import SQLALCHEMY_DATABASE_URI

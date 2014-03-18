@@ -5,7 +5,7 @@ Created on Sun Mar 16 15:21:37 2014
 @author: Goutham
 """
 
-#!flask/bin/python
+#!xprsn-env/bin/python
 import imp
 from migrate.versioning import api
 from webapp import db
