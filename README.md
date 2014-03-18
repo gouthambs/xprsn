@@ -50,3 +50,15 @@ python webapp.py
 ```
 
 
+Development Notes
+=================
+
+App
+---
+The `app` is loaded at the `__init__.py` file in `xprsn`. All the registration, database setup
+etc is done there as well. Any config changes etc should be started at that point. 
+
+
+Database 
+--------
+Any new models that you add to the app, make sure it is loaded at the `xprsn\__init__.py` file.

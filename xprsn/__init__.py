@@ -15,5 +15,6 @@ app = Flask(__name__,template_folder = os.path.join(_basedir,"templates"),
             static_url_path="/static")
 
 db = SQLAlchemy(app)
-
+# all models have to be loaded at this point
+from xprsn.bend import models
 

@@ -8,9 +8,11 @@ Created on Sun Mar 16 15:21:37 2014
 #!xprsn-env/bin/python
 import imp
 from migrate.versioning import api
-from webapp import db
+from xprsn import db
 from config import SQLALCHEMY_DATABASE_URI
 from config import SQLALCHEMY_MIGRATE_REPO
+
+
 migration = SQLALCHEMY_MIGRATE_REPO + '/versions/%03d_migration.py' % (api.db_version(SQLALCHEMY_DATABASE_URI, SQLALCHEMY_MIGRATE_REPO) + 1)
 tmp_module = imp.new_module('old_model')
 old_model = api.create_model(SQLALCHEMY_DATABASE_URI, SQLALCHEMY_MIGRATE_REPO)
