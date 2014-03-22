@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <!--link rel="shortcut icon" href="../../assets/ico/favicon.ico"-->
 
-    <title>Starter Template for Bootstrap</title>
+    <title>{% block title %}{{ config.SITENAME }} {% endblock %}</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="static/css/bootstrap.readable.min.css">
@@ -47,36 +47,12 @@
         </div><!--/.nav-collapse -->
       </div>
     </div>
-
-        
     <div class="container" role="main">
         <div class ="starter-template">
-        <div class="row">        
-        {% raw %}
-        <div ng-controller ="FormController1">
-            <div class="col-md-6">
-                <form>
-                <input type="text" ng-model="inputText"></input>
-                <button type="submit" ng-click="buttonClicked()">Click</button>
-                </form>
-                <hr>    
-                {{modText}}
-            </div>
+    {% block maincontent %} {% endblock %}    
         </div>
-        <div ng-controller ="FormController2">
-            <div class="col-md-6">
-                <form>
-                <input type="text" ng-model="inputText"></input>
-                <button type="submit" ng-click="buttonClicked()">Click</button>
-                </form>
-                <hr>    
-                {{modText}}
-            </div>
-        </div>
-        {% endraw %}
-      </div>
-      </div>
     </div><!-- /.container -->
+    
 
 
     <!-- Bootstrap core JavaScript

@@ -1,1 +1,30 @@
 {% extends 'base.html' %}
+{% block maincontent %}
+
+    
+        <div class="row">        
+        {% raw %}
+            <div ng-controller ="FormController1">
+                <div class="col-md-6">
+                    <form>
+                    <input type="text" ng-model="inputText"></input>
+                    <button type="submit" ng-click="buttonClicked()">Click</button>
+                    </form>
+                    <hr>    
+                    {{modText}}
+                </div>
+            </div>
+            <div ng-controller ="FormController2">
+                <div class="col-md-6">
+                    <form>
+                    <input type="text" ng-model="inputText"></input>
+                    <button type="submit" ng-click="buttonClicked()">Click</button>
+                    </form>
+                    <hr>    
+                    {{modText}}
+                </div>
+            </div>
+        {% endraw %}
+      </div>
+
+{% endblock %}

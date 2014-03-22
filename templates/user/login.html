@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %} {{config.SITENAME}}-{{ title }} {% endblock %}
+
+{% block maincontent %}
+
+<form action="" method=post class="form-horizontal">
+    <h2>{{config.SITENAME}}-{{ title }}</h2>
+    <div class="control-group row">
+    
+        <div class="col-md-6 col-md-offset-3">
+          <input type="text" id="username" name="username" class="form-control"
+            placeholder="Enter Username" required>
+        </div>
+    </div>
+ 
+    <div class="control-group row">
+        <div class="col-md-6 col-md-offset-3">
+          <input type="password" id="password" name="password" class="form-control"
+            placeholder="Enter Password" required>
+        </div>
+    </div>
+    <div class="control-group row">
+        <div class="col-md-6 col-md-offset-3">
+          <button type="submit" class="btn btn-success">Login</button>
+        </div>
+    </div>
+</form>
+
+{% endblock %}
+

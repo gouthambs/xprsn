@@ -22,5 +22,7 @@ SQLALCHEMY_MIGRATE_REPO = os.path.join(basedir, 'db_repository')
 #####################################
 
 SITENAME = "XPRSN"
-
+CSRF_ENABLED = True
+SECRET_KEY = "secretasdfa;lkj2093poaj092-92i-0ipi--9"
+CSRF_SECRET_KEY = "ajsdlfahsqy34982yiH(*^(*)(*&)S(FSOFI))"
 

@@ -62,3 +62,9 @@ etc is done there as well. Any config changes etc should be started at that poin
 Database 
 --------
 Any new models that you add to the app, make sure it is loaded at the `xprsn\__init__.py` file.
+
+
+Deployment Checklist
+====================
+
+1. Change the secret_key in the `config`. Use something long and random and never share it with anyone.
