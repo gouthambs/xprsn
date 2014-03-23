@@ -11,4 +11,4 @@ def setup_test():
     db.create_all()
     
 def teardown_test():
-    pass
+    db.drop_all()

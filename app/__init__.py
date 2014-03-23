@@ -6,13 +6,15 @@ Created on Tue Mar 18 20:53:10 2014
 """
 
 import os
-from flask import Flask,render_template
+from flask import Flask,render_template,request,redirect
 #from .database import db
 
 #############################################
 # Some paths and globals used is set here   #
 #############################################
 _BASEDIR = os.path.abspath(os.path.join(os.path.dirname(__file__),'..'))
+TEMPLATE_FOLDER = os.path.join(_BASEDIR,"templates")
+STATIC_FOLDER   = os.path.join(_BASEDIR,"static")
 
 
 flask_app = Flask(__name__,
@@ -32,7 +34,10 @@ import models
 def not_found(error):
     return render_template('404.html'), 404
 
-
+@flask_app.before_request 
+def remove_trailing_slash(): 
+    if request.path != '/' and request.path.endswith('/'): 
+        return redirect(request.path[:-1]) 
 
 
 

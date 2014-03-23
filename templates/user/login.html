@@ -3,28 +3,20 @@
 
 {% block maincontent %}
 
-<form action="" method=post class="form-horizontal">
+<form action="{{request.path}}" method="post" class="form-horizontal">
     <h2>{{config.SITENAME}}-{{ title }}</h2>
-    <div class="control-group row">
-    
-        <div class="col-md-6 col-md-offset-3">
-          <input type="text" id="username" name="username" class="form-control"
-            placeholder="Enter Username" required>
+    <form action="" method="post" name="login">
+        {{form.hidden_tag()}}
+        <div class="control-group row">
+        <p>
+            Username : {{form.username(size=40)}}<br>
+        </p>
         </div>
-    </div>
- 
-    <div class="control-group row">
-        <div class="col-md-6 col-md-offset-3">
-          <input type="password" id="password" name="password" class="form-control"
-            placeholder="Enter Password" required>
+        <div class="control-group row">
+        <p>Password : {{form.password(size=40)}}<br></p>
         </div>
-    </div>
-    <div class="control-group row">
-        <div class="col-md-6 col-md-offset-3">
-          <button type="submit" class="btn btn-success">Login</button>
-        </div>
-    </div>
-</form>
+        <p><input type="submit" value="Sign In"></p>
+    </form>
 
 {% endblock %}
 

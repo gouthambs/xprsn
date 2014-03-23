@@ -21,13 +21,26 @@ def test_user_insert():
     assert(len(users) == 1)
     u = users[0]
     assert(u.username == ud["name"])
-    assert(u.password == ud["pass"])
+    assert(u.password != ud["pass"]) # assert we don't store raw passwords
     assert(u.email == ud["email"]) 
     assert(u.role == mod.User.ROLE_FREE_USER)
         
     #assert(u.widgets==None)
-
-
+    
+        
+        
+        
+@with_setup(setup_test,teardown_test)
+def test_user_authentication():
+    ud = {"name":"test1","pass":"password","email":"user@email.com"}
+    u = mod.User(ud["name"],ud["pass"],ud["email"])
+    db.session.add(u)
+    db.session.commit()
+    user = mod.User.query.filter((mod.User.username ==ud["name"])).first()
+    assert(user.valid_authentication(ud["name"],ud["pass"])==True)
+    assert(user.valid_authentication(ud["name"],ud["pass"]+"randowm")==False)
+    
+    
 
     
     
