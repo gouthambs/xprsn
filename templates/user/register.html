@@ -7,30 +7,25 @@
     {{error }}
 {% endif %}
 
-  <form action="" method=post class="form-horizontal">
-  
+{% from "appmacros.html" import render_field %}
+  <form action="{{request.path}}" method=post class="form-horizontal">
+       {{form.hidden_tag()}}
     <h2>Register </h2>
     <div class="control-group">
         <div class="controls">
-          <input type="text" id="username" name="username" class="input-xlarge"
-            placeholder="Enter Username" value="{{ request.form.username }}"
-            required>
+           {{ render_field( form.username,size=40 )}}<br>
         </div>
     </div>
  
     <div class="control-group">
         <div class="controls">
-          <input type="password" id="password" name="password" class="input-xlarge"
-            placeholder="Enter Password" value="{{ request.form.password }}"
-            required>
+           {{ render_field( form.password,size=40 )}}<br>
         </div>
     </div>
  
     <div class="control-group">
         <div class="controls">
-          <input type="email" id="email" name="email" class="input-xlarge"
-            placeholder="Enter Email" value="{{ request.form.username }}"
-            required>
+           {{ render_field( form.email,size=40 )}}<br>
         </div>
     </div>
  

@@ -43,12 +43,21 @@
             <li class="active"><a href="#">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#contact">Contact</a></li>
+    {% if current_user.is_authenticated() %}
+            <li>
+                <a href="{{ url_for('auth.logout') }}"> Logout {{current_user.username}}
+                </a>
+            </li>
+    {% else %}
+            <li>   <a href="{{ url_for('auth.login') }}"> Login </a> </li>        
+    {% endif %}
           </ul>
         </div><!--/.nav-collapse -->
       </div>
     </div>
     <div class="container" role="main">
-        <div class ="starter-template">
+        <div >
+        <br><br>
     {% block maincontent %} {% endblock %}    
         </div>
     </div><!-- /.container -->

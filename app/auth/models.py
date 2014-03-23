@@ -30,7 +30,8 @@ class User(db.Model):
         self.username = username
         self.password = self.hash_password(password)
         self.email = email
-        self.joined = datetime.utcnow()   
+        self.joined = datetime.utcnow() 
+        
         
     
     def __repr__(self):
@@ -62,6 +63,10 @@ class User(db.Model):
         if (self.username == username) and (check_password_hash(self.password,password)):
             auth = True
         return auth
-            
+       
+    @classmethod   
+    def get(cls,userid):
+        u = User.query.filter_by(id = int(userid)).first()
+        return u
         
     

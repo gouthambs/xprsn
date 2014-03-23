@@ -15,7 +15,9 @@
         <div class="control-group row">
         <p>Password : {{form.password(size=40)}}<br></p>
         </div>
-        <p><input type="submit" value="Sign In"></p>
+        <p><input type="submit" value="Sign In">
+        <a href="{{ url_for('auth.register') }}" > Register </a>
+        </p>
     </form>
 
 {% endblock %}

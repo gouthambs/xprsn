@@ -7,8 +7,6 @@ Created on Tue Mar 18 20:53:10 2014
 
 import os
 from flask import Flask,render_template,request,redirect
-#from .database import db
-
 #############################################
 # Some paths and globals used is set here   #
 #############################################
@@ -26,6 +24,7 @@ from flask.ext.sqlalchemy import SQLAlchemy
 db = SQLAlchemy(flask_app)
 import models
 #db.init_app(flask_app)
+
 
 
 
