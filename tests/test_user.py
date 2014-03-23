@@ -4,15 +4,16 @@ Created on Sat Mar 22 06:41:43 2014
 
 @author: Goutham
 """
+from nose.tools import with_setup,raises
+from sqlalchemy.exc import IntegrityError
 from app import db
 import app.models as mod
-from nose.tools import with_setup
 from common import setup_test,teardown_test
 
+ud = {"name":"test1","pass":"password","email":"user@email.com"}
 
 @with_setup(setup_test,teardown_test)
 def test_user_insert():
-    ud = {"name":"test1","pass":"password","email":"user@email.com"}
     u = mod.User(ud["name"],ud["pass"],ud["email"])
     db.session.add(u)
     db.session.commit()
@@ -32,16 +33,44 @@ def test_user_insert():
         
 @with_setup(setup_test,teardown_test)
 def test_user_authentication():
-    ud = {"name":"test1","pass":"password","email":"user@email.com"}
+    
     u = mod.User(ud["name"],ud["pass"],ud["email"])
     db.session.add(u)
     db.session.commit()
     user = mod.User.query.filter((mod.User.username ==ud["name"])).first()
     assert(user.valid_authentication(ud["name"],ud["pass"])==True)
     assert(user.valid_authentication(ud["name"],ud["pass"]+"randowm")==False)
+ 
+
+@with_setup(setup_test,teardown_test)
+def test_user_uniqueness():
+    u = mod.User(ud["name"],ud["pass"],ud["email"])
+    db.session.add(u)
+    db.session.commit()
+    exc  = False
+    try:
+        u = mod.User(ud["name"],ud["pass"],ud["email"]+"rnd")
+        db.session.add(u)
+        db.session.commit()
+    except IntegrityError:
+        exc = True
+        db.session.rollback()
+    assert(exc==True)
     
     
 
-    
-    
+@with_setup(setup_test,teardown_test) 
+def test_email_uniqueness():
+    u = mod.User(ud["name"],ud["pass"],ud["email"])
+    db.session.add(u)
+    db.session.commit()
+    exc = False
+    try:
+        u = mod.User(ud["name"]+"rnd",ud["pass"],ud["email"])
+        db.session.add(u)
+        db.session.commit()
+    except IntegrityError:
+        exc = True
+        db.session.rollback()
+    assert(exc ==True)
     
