@@ -26,11 +26,6 @@ def test_user_insert():
     assert(u.email == ud["email"]) 
     assert(u.role == mod.User.ROLE_FREE_USER)
         
-    #assert(u.widgets==None)
-    
-        
-        
-        
 @with_setup(setup_test,teardown_test)
 def test_user_authentication():
     
@@ -57,8 +52,6 @@ def test_user_uniqueness():
         db.session.rollback()
     assert(exc==True)
     
-    
-
 @with_setup(setup_test,teardown_test) 
 def test_email_uniqueness():
     u = mod.User(ud["name"],ud["pass"],ud["email"])

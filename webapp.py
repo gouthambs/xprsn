@@ -4,6 +4,7 @@ from flask import render_template
 
 from app import db,flask_app
 from app.auth.views import auth_bp
+from app.widgets.views import widg_bp
 
 import config
 
@@ -20,6 +21,7 @@ def app_setup(app):
     flask_app.secret_key  = config.SECRET_KEY
     # all models have to be loaded at this point
     flask_app.register_blueprint(auth_bp)
+    flask_app.register_blueprint(widg_bp)
     #with flask_app.app_context():
     #    from app.widgets.models import Widget        
     #    from app.auth.models import User    

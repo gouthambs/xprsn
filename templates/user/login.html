@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% block title %} {{config.SITENAME}}-{{ title }} {% endblock %}
+{% from "appmacros.html" import render_field %}
 
 {% block maincontent %}
 
@@ -7,17 +8,24 @@
     <h2>{{config.SITENAME}}-{{ title }}</h2>
     <form action="" method="post" name="login">
         {{form.hidden_tag()}}
-        <div class="control-group row">
-        <p>
-            Username : {{form.username(size=40)}}<br>
-        </p>
+        <div class="control-group">
+            <div class="controls">
+            {{ render_field( form.username,size=40 )}}<br>
+            </div>
         </div>
-        <div class="control-group row">
-        <p>Password : {{form.password(size=40)}}<br></p>
+
+        <div class="control-group">
+            <div class="controls">
+            {{ render_field( form.password,size=40 )}}<br>
+            </div>
         </div>
-        <p><input type="submit" value="Sign In">
+        
+        <div class="control-group">
+            <div class="controls">
+              <button type="submit" class="btn btn-success">SignIn</button>
+            </div>
+        </div>
         <a href="{{ url_for('auth.register') }}" > Register </a>
-        </p>
     </form>
 
 {% endblock %}
