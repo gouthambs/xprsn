@@ -28,8 +28,8 @@ def app_setup(app):
     #    
     #    db.create_all()
 
-if __name__ == '__main__':
 
-    app_setup(flask_app)
-    
+
+if __name__ == '__main__':
+    app_setup(flask_app)    
     flask_app.run(debug=True)

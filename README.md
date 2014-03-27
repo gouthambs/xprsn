@@ -64,6 +64,12 @@ Database
 Any new models that you add to the app, make sure it is loaded at the `xprsn\__init__.py` file.
 
 
+Running Test
+------------
+The following command can be used to run tests with coverage information.
+```
+nosetests --with-coverage --cover-package=app -v tests\
+```
 Deployment Checklist
 ====================
 
